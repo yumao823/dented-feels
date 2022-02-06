@@ -7,6 +7,8 @@ import Overview from '../src/Overview'
 import Team from '../src/Team'
 import Faq from '../src/Faq'
 import Footer from '../src/Footer'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Home = () => (
   <div>
@@ -18,6 +20,15 @@ const Home = () => (
     <Team />
     <Faq />
     <Footer />
+    <ToastContainer
+      position="top-right"
+      autoClose={1000}
+      hideProgressBar={true}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      draggable
+    />
   </div>
 )
 

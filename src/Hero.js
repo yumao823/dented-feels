@@ -1,7 +1,17 @@
 import React, { useState } from 'react'
+import { useEtherBalance, useEthers } from '@usedapp/core'
+import { formatEther } from '@ethersproject/units'
+import { toast } from 'react-toastify'
 
 const Modal = ({ onClose }) => {
   const [total, setTotal] = useState(3)
+  const { account, deactivate } = useEthers()
+  const etherBalance = useEtherBalance(account)
+
+  const handleDisconnect = async () => {
+    await deactivate()
+    toast.info("Disconnected")
+  }
 
   return (
     <>
@@ -14,6 +24,12 @@ const Modal = ({ onClose }) => {
               <p className='text-4xl mx-auto'>Mint</p>
               <button className="border border-2 border-black rounded-full ml-10 px-2" onClick={onClose}>X</button>
             </div>
+            {account && (
+              <div className='text-center'>
+                <p className='my-3'>Address: {`${account?.slice(0, 4)}...${account?.slice(-4)}`}</p>
+                <p className='my-3'>Balance: {etherBalance && formatEther(etherBalance)}</p>
+              </div>
+            )}
             <div className="relative flex flex-col items-center flex-auto p-6 sm:p-10">
               <div className='flex items-center'>
                 <button
@@ -29,9 +45,17 @@ const Modal = ({ onClose }) => {
                 </button>
               </div>
               <p className='my-6'>Price: 0.3ETH</p>
-              <button className='bg-yellow-300 hover:bg-yellow-500 font-copper-black font-bold text-xl py-1 px-4 border border-4 border-black rounded-full'>
-                Mint
-              </button>
+              <div className='flex justify-center'>
+                <button className='bg-yellow-300 font-copper-black font-bold text-xl py-1 px-4 border border-4 border-black rounded-full mr-6' disabled={!account}>
+                  Mint
+                </button>
+                <button
+                  className='bg-white font-copper-black font-bold text-xl py-1 px-4 border border-4 border-black rounded-full'
+                  onClick={handleDisconnect}                
+                >
+                  Disconnect
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -43,6 +67,14 @@ const Modal = ({ onClose }) => {
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false)
+  const { account } = useEthers()
+
+  const handleMint = () => {
+    if (account) setShowModal(true)
+    else toast.warn('Please connect to your wallet', {
+      duration: 1,
+    })
+  }
 
   return (
     <>
@@ -53,7 +85,7 @@ const Hero = () => {
           <div className='flex justify-center text-xl'>
             <button
               className='bg-yellow-300 hover:bg-yellow-500 font-copper-black font-bold py-1 px-4 border border-4 border-black rounded-full'
-              onClick={() => setShowModal(true)}  
+              onClick={handleMint}  
             >
               Mint
             </button>
