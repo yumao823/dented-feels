@@ -2,7 +2,7 @@ import React from 'react'
 
 const Overview = () => (
   <>
-    <div className='bg-pink-200 border-b-4 font-copper-black text-4xl border-black py-24 px-2 overflow-hidden'>
+    <div className='bg-pink-200 border-b-4 font-copper-black text-4xl border-black py-24 px-6 overflow-hidden'>
       <p className='whitespace-nowrap text-ellipsis mb-3'>
         Emotions change, dreams are forever• Emotions change, dreams are forever• Emotions change, dreams are forever•
       </p>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Reason = () => (
   <>
-    <div className='bg-cyan-100 border-b-4 border-black py-32 px-2'>
+    <div className='bg-cyan-100 border-b-4 border-black py-32 px-6'>
       <div className="grid grid-cols-1 sm:grid-cols-5 container max-w-screen-xl mx-auto">
         <div className='sm:col-span-2 mb-10 sm:mb-0 px-10 lg:p-20'>
           <img src='/reason.png' className='w-full max-w-screen-sm' />
