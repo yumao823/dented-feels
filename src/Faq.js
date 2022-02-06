@@ -20,11 +20,9 @@ const Item = ({ data }) => {
           <p className='ml-auto'>{opened ? '-' : '+'}</p>
         </div>
         <div className={`transition-max-height duration-700 ease-in-out overflow-hidden ${opened ? "max-h-96" : "max-h-0"}`} >
-          {
-            [1, 2, 3, 4, 5].map(item => (
-              <p key={`op-${item}`} className='mt-2 cursor-pointer'>Option {item}</p>
-            ))
-          }
+          {[1, 2, 3, 4, 5].map(item => (
+            <p key={`op-${item}`} className='mt-2 cursor-pointer'>Option {item}</p>
+          ))}
         </div>
     </div>
   )
