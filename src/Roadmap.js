@@ -21,7 +21,7 @@ const Card = ({ data }) => (
 
 const Roadmap = () => (
   <div className='relative'>
-    <div className='border-b-4 border-black py-32 px-6'>
+    <div className='border-b-8 border-black py-32 px-6'>
       <div className='container max-w-screen-xl mx-auto'>
         <div className='grid grid-cols-1 sm:grid-cols-2'>
           <div className='text-6xl sm:text-7xl font-copper-black mb-6'>The<br />Roadmap</div>

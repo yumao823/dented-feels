@@ -30,7 +30,7 @@ const Item = ({ data }) => {
 
 const Faq = () => (
   <>
-    <div className='bg-cyan-100 font-copper-black border-b-4 border-black py-24 px-6 '>
+    <div className='bg-cyan-100 font-copper-black border-b-8 border-black py-24 px-6 '>
       <p className='text-4xl text-center mb-6'>FAQ</p>
       <div className='accordian  accordion-flush'>
         {FAQS.map((item, index) => <Item key={`faq-${index}`} data={item} />)}

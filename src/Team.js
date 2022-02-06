@@ -26,7 +26,7 @@ const ProfileCard = ({ data }) => (
 
 const Team = () => (
   <>
-    <div className='bg-cyan-100 border-b-4 border-black py-32 px-6'>
+    <div className='bg-cyan-100 border-b-8 border-black py-32 px-6'>
       <div className="container max-w-screen-xl mx-auto">
         <p className='font-copper-black text-center text-4xl mb-2'>The Team</p>
         <div className='w-fit grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-auto'>
@@ -35,7 +35,7 @@ const Team = () => (
       </div>
     </div>
     <img src='/cloud-small.png' className='w-24 h-16 -my-8 mx-auto' />
-    <div className='bg-blue-400 border-b-4 border-black py-32 px-6'>
+    <div className='bg-blue-400 border-b-8 border-black py-32 px-6'>
       <div className="grid grid-cols-1 sm:grid-cols-2 container max-w-screen-xl mx-auto">
         <div className='flex flex-col font-copper-black mb-10 sm:mb-0'>
           <p className='text-6xl sm:text-8xl mb-3'>Stay<br />Connected</p>

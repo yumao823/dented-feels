@@ -46,7 +46,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className='bg-yellow-100 flex justify-center item-center py-32 px-6 border-b-4 border-black'>
+      <div className='bg-yellow-100 flex justify-center item-center py-32 px-6 border-b-8 border-black'>
         <div className='text-center font-copper-black w-fit'>
           <img src='/hero.png' className='w-full max-w-screen-sm' />
           <p className='text-2xl my-4'>Emotions change, dreams are forever.</p>
