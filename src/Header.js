@@ -12,8 +12,10 @@ const Header = () => {
   const { account, activateBrowserWallet } = useEthers()
   
   const handleConnect = async () => {
-    await activateBrowserWallet()
-    toast.success('Connected Successfully!')
+    if (!account) {
+      await activateBrowserWallet()
+      toast.success('Connected Successfully!')
+    }
   }
 
   return (
@@ -30,7 +32,7 @@ const Header = () => {
             className='bg-yellow-300 hover:bg-yellow-500 font-copper-black font-bold text-xl py-1 px-4 border border-4 border-black rounded-full'
             onClick={handleConnect}  
           >
-            Connect
+            {!account ? 'Connect' : `${account?.slice(0, 4)}...${account?.slice(-4)}`}
           </button>
         </div>
       </div>

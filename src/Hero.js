@@ -20,31 +20,26 @@ const Modal = ({ onClose }) => {
       >
         <div className="relative my-6 mx-auto max-w-3xl p-6">
           <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-            <div className="flex items-start justify-between py-6 px-3">
+            <div className="relative flex items-start justify-between py-6 px-3">
               <p className='text-4xl mx-auto'>Mint</p>
-              <button className="border border-2 border-black rounded-full ml-10 px-2" onClick={onClose}>X</button>
+              <button className="absolute right-4 border border-2 border-black rounded-full px-2" onClick={onClose}>X</button>
             </div>
-            {account && (
-              <div className='text-center'>
-                <p className='my-3'>Address: {`${account?.slice(0, 4)}...${account?.slice(-4)}`}</p>
-                <p className='my-3'>Balance: {etherBalance && formatEther(etherBalance)}</p>
-              </div>
-            )}
+            {account && <p className='text-center my-1'>Balance: {etherBalance && formatEther(etherBalance)}</p>}
             <div className="relative flex flex-col items-center flex-auto p-6 sm:p-10">
               <div className='flex items-center'>
                 <button
                   className='bg-white flex justify-center items-center w-10 h-10 border border-4 border-black rounded-full text-3xl'
-                  onClick={() => setTotal(total - 1)}
+                  onClick={() => total > 0 && setTotal(total - 1)}
                 >-</button>
                 <p className='text-4xl mx-5'>Total: {total}</p>
                 <button
                   className='bg-white flex justify-center items-center w-10 h-10 border border-4 border-black rounded-full text-3xl'
-                  onClick={() => setTotal(total + 1)}
+                  onClick={() => total < 3 && setTotal(total + 1)}
                 >
                   +
                 </button>
               </div>
-              <p className='my-6'>Price: 0.3ETH</p>
+              <p className='my-6'>Price: {0.11 * total} ETH</p>
               <div className='flex justify-center'>
                 <button className='bg-yellow-300 font-copper-black font-bold text-xl py-1 px-4 border border-4 border-black rounded-full mr-6' disabled={!account}>
                   Mint
